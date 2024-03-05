@@ -1,0 +1,10 @@
+Le footer avec les liens vers les reseaux sociaux est present sur toutes les pages.
+On peut voir que la redirection vers les liens reel se font de cette facon:
+
+href="index.php?page=redirect&site=facebook"
+
+La valeur de la redirection n'est pas verifiee, lorsque l'on change la valeur en mettant par exemple
+
+index.php?page=redirect&site=test
+
+On obtiens le flag.

@@ -1,0 +1,4 @@
+Sur la page /index.php?page=recover pour retrouver son mot de passe apres l'avoir perdu
+On remarque un input de type "hidden" qui fait partis d'un form qui est trigger par le bouton submit.
+On peut enlever le type hidden et changer la valeur puis submit le formulaire. On obtiens le flag.
+On constate que le form et le submit envoie des informations contenues dans un input hidden vers le server...
