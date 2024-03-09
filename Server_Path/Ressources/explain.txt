@@ -1,0 +1,7 @@
+Les urls sur le site correspondent a des fichiers static envoye par le server, et le system de tree des dossiers est lier.
+Par exemple si on passe en parametre de page:
+?page=./index.php on obtiens la page index, present a la racine de la ou est lancer le server.
+En remontant dans l'arborescence de la machine, on peut acceder a des informations sensibles :
+/?page=../../../../../../../etc/passwd est le chemin relatif vers les mdp et donnees sensibles de la machine.
+Le server devrait donner les droits uniquement a root pour le reste de la machine et les fichiers du site uniquement devrait avoir des droits.
+On peut aussi eviter de charger des pages statiquement selon l'arborescence du server.

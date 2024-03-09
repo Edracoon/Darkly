@@ -20,4 +20,4 @@ curl --user-agent "ft_bornToSec" --referer "https://www.nsa.gov/" "http://<notre
 
 Et on obtiens le flag dans la reponse du curl sous forme de page HTML.
 
-On constate que le server ne verifie pas de quel endpoint viens les requetes, et ne verifie pas non plus les differents headers.
+On constate que le server ne verifie pas de quel url viennent les requetes, et ne verifie pas non plus les differents headers.
