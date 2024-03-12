@@ -1,0 +1,7 @@
+En essayant de se login sur de maniere normale on arrive sur cet url avec une erreur:
+http://IP/index.php?page=signin&username=&password=&Login=Login#
+
+En utilisant ce get on peut essayer de se connecter en tant que root en testant avec une liste des mots de passe les plus utilisés sur internet.
+Liste trouvée ici : https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt
+
+Notre script essaie un à un les passwords, on accede à la page avec le flag avec le password 'shadow'.
