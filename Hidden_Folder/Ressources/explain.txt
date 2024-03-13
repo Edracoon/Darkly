@@ -1,0 +1,23 @@
+Pour obtenir plus d'information a propos d'un network on peut utiliser nmap.
+Avec l'option -A sur l'ip de notre vm on obtiens:
+
+"""
+$> nmap -A {ip}
+Starting Nmap 7.80 ( https://nmap.org ) at 2024-03-13 23:13 CET
+Nmap scan report for borntosecweb.home (192.168.1.40)
+Host is up (0.00028s latency).
+Not shown: 999 closed ports
+PORT   STATE SERVICE VERSION
+80/tcp open  http    nginx 1.4.6 (Ubuntu)
+| http-robots.txt: 2 disallowed entries 
+|_/whatever /.hidden
+|_http-server-header: nginx/1.4.6 (Ubuntu)
+|_http-title: BornToSec - Web Section
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+"""
+
+On peut voir la racine d'ou tourne le server web de darkly.
+Le dossier .hidden contiens plusieurs sous dossiers qui eux meme contiennent des sous dossiers.
+L'astuce ici est de trouver le dossier dans lequel le readme contiens le flag.
+Voir le script dans les ressources.
+On trouve le flag environ a la 15k ligne....

@@ -1,0 +1,25 @@
+Sur la page survey, on peut voter pour 5 personnes differentes.
+On remarque que le code pour ajouter des points aux personnes est le meme a chaque fois:
+
+<td align="center">
+    <form action="#" method="post">
+        <input type="hidden" name="sujet" value="2">
+        <SELECT name="valeur" onChange='javascript:this.form.submit();'>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </SELECT>
+    </form>
+</td>
+
+En changeant les value des options dan le select, en mettant par exemple un grand nombre,
+on fait gagner la personne de notre choix en augmentant son score et on obtiens le flag.
+
+On remarque que les valeurs des options ne sont pas verifier cote serveur.
