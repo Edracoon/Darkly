@@ -9,7 +9,6 @@ def get_href_value(line):
 def read_readme(url, output_file):
     res = requests.get(url)
     if res.status_code == 200:
-        # Check if the URL ends with "/README"
         # print("Found in README:", res.text)
         output_file.write(res.text)
 
