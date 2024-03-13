@@ -1,0 +1,7 @@
+Sur la page des feedbacks, on retrouve deux inputs pour laisser un commentaire.
+Cette faille est une faille de type XSS (envoyer des scripts malicieux en db via un input qui ne sanitize pas le donnees).
+Dans un premier temps, le site verifie que les inputs ne soit pas vides, puis appel la fonction "checkForm"
+mais elle n'est pas definie :
+Uncaught ReferenceError: checkForm is not defined
+On peut donc essayer d'envoyer n'importe quel script dans l'input et on obtiens le flag.
+On peut aussi juste envoyer "script" dans le commentaire.
