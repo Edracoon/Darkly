@@ -1,0 +1,29 @@
+De la meme maniere que pour le .hidden folder, on obtiens avec la commande nmap les informations suivantes:
+
+"""
+PORT   STATE SERVICE VERSION
+80/tcp open  http    nginx 1.4.6 (Ubuntu)
+| http-robots.txt: 2 disallowed entries 
+|_/whatever /.hidden
+|_http-server-header: nginx/1.4.6 (Ubuntu)
+|_http-title: BornToSec - Web Section
+"""
+
+On s'interesse ici au fichier http-robots.txt. C'est un fichier qui a pour but de restreindre
+les scrapers des moteurs de recherche pour eviter l'indexation de certaines partie du website.
+
+http://IP/robots.txt :
+
+"""
+User-agent: *
+Disallow: /whatever
+Disallow: /.hidden
+"""
+
+On s'est deja occupe du dossier .hidden. Dans le dossier /whatever on y trouve un fichier
+htpasswd qui contiens:
+
+root:437394baff5aa33daa618be47b75cb49
+
+C'est un login et un mdp, le mdp etant crypted en md5. En le decryptant on obtiens "qwerty123@"
+Sur la page http://IP/admin on rentre ces identifiants et on obtiens le flag.

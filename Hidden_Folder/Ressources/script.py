@@ -28,7 +28,6 @@ def iterate_hidden_folder(url, output_file):
             else:
                 iterate_hidden_folder(next_url, output_file)
 
-
 # Output file to write results
 output_file_path = "results.txt"
 

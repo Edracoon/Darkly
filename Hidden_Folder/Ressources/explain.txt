@@ -14,6 +14,7 @@ PORT   STATE SERVICE VERSION
 |_http-server-header: nginx/1.4.6 (Ubuntu)
 |_http-title: BornToSec - Web Section
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+...
 """
 
 On peut voir la racine d'ou tourne le server web de darkly.
