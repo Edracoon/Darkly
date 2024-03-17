@@ -3,8 +3,10 @@ On peut voir que la redirection vers les liens reel se font de cette facon:
 
 href="index.php?page=redirect&site=facebook"
 
-La valeur de la redirection n'est pas verifiee, lorsque l'on change la valeur en mettant par exemple
-
-index.php?page=redirect&site=test
-
+La valeur de la redirection n'est pas verifiee, lorsque l'on change la valeur de la variable site.
+index.php?page=redirect&site=anywebsite
 On obtiens le flag.
+
+
+C'est une faille car n'importe qui pourrait utiliser notre url pour rediriger des gens
+vers un faux site qui pourrait soutirer des informations precieuse (par exemple avec un site de fishing).

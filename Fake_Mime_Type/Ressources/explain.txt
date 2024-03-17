@@ -1,0 +1,18 @@
+On se retrouve sur la page d'upload d'image, il s'agis ici d'une faille 
+de type "mime spoofing", il s'agit d'upload de fichier de tout type, qu'on le fait passer pour une image.
+
+On doit imiter le comportement du submit du formulaire sur le site.
+
+On retrouve un premier input qui est celui ou l'on choisis son fichier, qui sera appeller "uploaded".
+<input name="uploaded" type="file">
+
+Et un deuxieme qui est un bouton qui va trigger le submit du formulaire.
+<input type="submit" name="Upload" value="Upload">
+
+On va donc envoyer un form data avec curl avec les memes noms de variables qui sont utilisees sur le formulaire:
+On choisis par exemple d'upload un faux script shell.
+
+touch fake_script.sh
+curl -s -X POST -F "uploaded=@./fake_script.sh;type=image/jpeg" -F "Upload=Upload" "http://{ip}/index.php?page=upload"
+
+On recupere une page html, contenant le flag.

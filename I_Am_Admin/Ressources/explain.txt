@@ -1,8 +1,10 @@
 On peut voir dans le stockage de la page (Cookie, Local storage...) un cookie du nom
 de I_am_admin avec cette valeur: "68934a3e9455fa72420237eb05902327"
+
 En utilisant un site d'analyse de hash (https://www.dcode.fr), on constate que cette string est encrypte avec l'algo md5
 On le decrypte sur le meme site : https://www.dcode.fr/md5-hash, et on obtiens "false"
 On en deduit donc qu'on pourrait changer sa valeur en true, si on l'encrypte avec md5.
 "true" en md5 est "b326b5062b2f0e69046810717534cb09"
 On change la value du cookie et on obtiens le flag avec un refresh de la page.
+
 Le site devrait utiliser par exemple un system d'auth securise avec un jwt, et non une encryption simpliste.

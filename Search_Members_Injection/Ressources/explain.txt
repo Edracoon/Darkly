@@ -1,0 +1,26 @@
+Dans la page des Membre, on peut chercher les membres presents en db avec leur id.
+L'astuce ici est que l'input n'est pas sanitized et n'est donc pas proteger des injections sql.
+Pour acceder a l'ensemble des membres dans la db on peut entrer par exemple 1 OR 1=1
+Autrement dis toutes les recherches retourneront true et tous les membres seront remvoyes.
+Pour ajouter une requete on peut utiliser le mot cle UNION,
+on s'en sert ici pour chercher les noms des champs dans la db :
+1 OR 1=1 UNION SELECT table_name, column_name FROM information_schema.columns
+
+Ce qui donne les informations de toutes les tables dans la db.
+On peut ainsi voir qu'un user a ce genre de champs:
+
+user_id, first_name, last_name, town, country, planet, commentaire, countersign, ....
+
+Apres quelques recherches les champs qui nous interressent sont commentaire et countersign :
+
+1 OR 1=1 UNION SELECT Commentaire, countersign from users 
+
+On obtiens les users avec seulement ces deux champs, on remarque ceci sur le dernier user:
+
+ID: 1 OR 1=1 UNION SELECT Commentaire, countersign from users 
+First name: Decrypt this password -> then lower all the char. Sh256 on it and it's good !
+Surname : 5ff9d0165b4f92b14994e5c685cdce28
+
+Depuis le md5 on obtiens "FortyTwo".
+fortytwo en sh256 = 10A16D834F9B1E4068B25C4C46FE0284E99E44DCEAF08098FC83925BA6310FF5
+On obtiens le flag !

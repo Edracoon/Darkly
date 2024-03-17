@@ -1,0 +1,31 @@
+Le logo de la nsa est cliquable: on se retrouve sur l'adresse :
+http://{ip}/index.php?page=media&src=nsa.
+On remarque que l'image est trouver avec un identifiant src=nsa, il s'agit donc d'une URI
+(https://developer.mozilla.org/fr/docs/Glossary/URI)
+
+Le probleme etant que l'on peut passer n'importe quoi dans la src, et le server pourra le charger pour nous.
+On peut par exemple utilser un DataURL (https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs)
+qui sont des url qui permettent aux créateurs de contenu d'intégrer de petits fichiers dans des documents.
+
+Les datas url se construisent ainsi :
+"data:[<mediatype>][;base64],<data>"
+
+data:[<mediatype>] prefixe avec le type MIME indiquant le type de donnée.
+[;base64] jeton dans le cas où les donnees ne sont pas textuelles
+<data> les données elles-mêmes.
+
+Il ne nous reste plus qu'a construire notre ressource avec un script en html par exemple.
+<script>alert('test')</script>
+
+Comme le script va se retrouver dans notre URI, on l'encode en base64:
+
+Voici notre data url finale :
+data:text/html;base64,PHNjcmlwdD5hbGVydCgndGVzdCcpPC9zY3JpcHQ+
+
+http://{ip}/index.php?page=media&src=data:text/html;base64,PHNjcmlwdD5hbGVydCgndGVzdCcpPC9zY3JpcHQ+
+
+Tant que le site detecte nos balises script contenu dans la base64, on obtiens le flag.
+
+Pour eviter cette faille, il faudrait eviter de charger directement les data contenue dans l'url sur la page,
+ou encore en utilisant des ids pointant vers des images en base de donnees. 
+ 
